@@ -1,6 +1,9 @@
-jQuery(document).ready(function($){
-
-    $('._acf_flm_add_layout_section').each(function(index){
+jQuery(document).ready(function($) {
+    
+    if (typeof acf == 'undefined')
+        return;
+    
+    $('.acf_flm_add_layout_section').each(function(index){
 
         //Get the acf div with the flexible content informations
         var flexibleContent = $(this).parents('.acf-field-flexible-content');
@@ -18,4 +21,5 @@ jQuery(document).ready(function($){
         $(this).css('display', 'inline-block');
 
     });
+
 });

@@ -1,5 +1,6 @@
 <?php
-add_action( 'admin_enqueue_scripts', '_pit_acf_template_enqueue_admin_languages' );
+
+add_action('admin_enqueue_scripts', '_pit_acf_template_enqueue_admin_languages');
 function _pit_acf_template_enqueue_admin_languages(){
     wp_localize_script('_acf-flm-script-move-button', 'tradObject', array(
         'duplication'           => __( 'Duplicate this layout', 'acf-flexible-layouts-manager' ),
@@ -14,5 +15,5 @@ function _pit_acf_template_enqueue_admin_languages(){
         'addTemplate'           => __( 'Add to the other(s) layout(s)', 'acf-flexible-layouts-manager' ),
         'replaceTemplate'       => __( 'Replace current layout(s)', 'acf-flexible-layouts-manager' ),
         'noSelectTemplate'      => __( 'There is no layout selected', 'acf-flexible-layouts-manager' ),
-      ) );
+    ));
 }

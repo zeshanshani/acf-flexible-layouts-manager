@@ -1,7 +1,7 @@
 <?php
 
-add_action('acf/input/admin_footer', '_acf_flm_paste_layout');
-function _acf_flm_paste_layout()
+add_action('acf/input/admin_footer', 'acf_flm_paste_layout');
+function acf_flm_paste_layout()
 {
     add_thickbox(); ?>
 
@@ -15,7 +15,7 @@ function _acf_flm_paste_layout()
 
                 <form action="" id="acf-flm-form-paste-layout">
 
-                    <input type="hidden" name="action" value="_acf_flm_update_template_with_pasted_layout">
+                    <input type="hidden" name="action" value="acf_flm_update_template_with_pasted_layout">
                     <input type="hidden" name="flexible" value="">
                     <input type="hidden" name="key" value="">
 

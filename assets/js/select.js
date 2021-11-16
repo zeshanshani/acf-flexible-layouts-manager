@@ -1,6 +1,9 @@
 jQuery(document).ready(function ($) {
-
-    var template = $('._acf_flm_add_layout_section').attr('data-target');
+    
+    if (typeof acf == 'undefined')
+        return;
+    
+    var template = $('.acf_flm_add_layout_section').attr('data-target');
     
     //Show the select button if is not a new page/post/term or user
     if( (typeof template !== 'undefined') && (template != 'new') && (template != '') ){
@@ -29,7 +32,7 @@ jQuery(document).ready(function ($) {
             $('.boxcontent .content .load').addClass('is-active');
 
             data = { 
-                action: 	'_acf_flm_get_all_posts_how_contains_current_flexible',
+                action: 	'acf_flm_get_all_posts_how_contains_current_flexible',
                 flexible:   currentFlexible,
                 key:        key
             };
@@ -89,7 +92,7 @@ jQuery(document).ready(function ($) {
             divContent.find('.load').addClass('is-active');
 
             data = {
-                action: '_acf_flm_get_all_layout_templates',
+                action: 'acf_flm_get_all_layout_templates',
                 postid: pageLink.attr('data-post-id'),
                 flexible: flexible
             };
@@ -146,7 +149,7 @@ jQuery(document).ready(function ($) {
         }else {
             var formdata = new FormData(this);
             //Add the current post id to the formdata before send it to ajax
-            formdata.set('post_id_current', $('._acf_flm_add_layout_section').attr('data-target'));
+            formdata.set('post_id_current', $('.acf_flm_add_layout_section').attr('data-target'));
             //Add loading
             $(this).parents('.content').find('.load').addClass('is-active');
 

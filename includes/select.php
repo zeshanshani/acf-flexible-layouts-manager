@@ -1,7 +1,7 @@
 <?php
 
-add_action('acf/input/admin_footer', '_acf_flm_select_layout');
-function _acf_flm_select_layout()
+add_action('acf/input/admin_footer', 'acf_flm_select_layout');
+function acf_flm_select_layout()
 {
     add_thickbox(); ?>
 
@@ -18,7 +18,7 @@ function _acf_flm_select_layout()
                 <div class="acf-flm-select-layout-result">
                     <form action="#" method="post" id="acf-flm-form-answer-custom-select-layout">
 
-                        <input type="hidden" value="_acf_flm_update_with_custom_layout_selected" name="action">
+                        <input type="hidden" value="acf_flm_update_with_custom_layout_selected" name="action">
                         <input type="hidden" value="" name="post_id_cible">
                         <input type="hidden" value="" name="flexible_content">
 

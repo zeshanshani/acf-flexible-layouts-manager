@@ -1,9 +1,12 @@
 jQuery(document).ready(function ($) {
-
-    var template = $('._acf_flm_add_layout_section').attr('data-target');
+    
+    if (typeof acf == 'undefined')
+        return;
+    
+    var template = $('.acf_flm_add_layout_section').attr('data-target');
 
     //Show the past button if is not a new page/post/term or user
-    if( (typeof template !== 'undefined') && (template != 'new') && (template != '') ){
+    if ( (typeof template !== 'undefined') && (template != 'new') && (template != '') ) {
         $('.acf-flm-btn-past-layout').show();
     }
 
