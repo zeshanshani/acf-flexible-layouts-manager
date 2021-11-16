@@ -9,9 +9,9 @@ jQuery(document).ready(function($){
 
     /** Push this feature inside the features array of the global variable. */
     // acf.AFLM.features.push('add-auto-single-layout')
-    
-    var is_acf_version_5_7_or_more = (typeof acf.data != 'undefined' && typeof acf.data.acf_version != 'undefined' && parseFloat(acf.data.acf_version) >= 5.7);
-        
+
+    var is_acf_version_5_7_or_more = (typeof acf.data != 'undefined' && typeof acf.data.acf_version != 'undefined' && ( acf.data.acf_version.localeCompare( 5.7, undefined, { numeric: true, sensitivity: 'base' } ) ) >= 0 );
+
     /** If ACF version is 5.7+, then use new JS syntax */
     if (is_acf_version_5_7_or_more) {
 
@@ -78,15 +78,15 @@ jQuery(document).ready(function($){
         // ACF Flexible Content: Directly add layout if there's only one layout
         var flexible_content_open = acf.fields.flexible_content._open;
         acf.fields.flexible_content._open = function(e){
-            
+
             var $popup = $(this.$el.children('.tmpl-popup').html());
-            
+
             // Count layouts
             if($popup.find('a').length == 1){
                 acf.fields.flexible_content.add($popup.find('a').attr('data-layout'));
                 return false;
             }
-            
+
             // More than one layout? Continue the JS execution
             return flexible_content_open.apply(this, arguments);
         }
